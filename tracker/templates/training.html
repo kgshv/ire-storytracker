@@ -24,17 +24,13 @@
             </div><!--/.nav-collapse -->
         </div>
       </div>
-<div class="row-fluid">
-    <div class="offset10 btn"><a href="#listview">list view</a></div>
-    <div class="btn"><a href="/training/">map view</a></div>
-</div>
 </div>
 
 {% endblock %}
 {% block body %}
-<!--div class="row-fluid">
-	<div class="span9"-->
-    <div id="map" style="margin-top: 40px; height: 100%; width:100%; box-shadow: 4px 4px 5px #ccc;">
+<div class="row-fluid">
+	<div class="span10 offset1" style="margin-top: 40px; padding-top: -40px">
+    <div id="map"  style="margin-top: 40px; padding-top: -40px; height: 500px; box-shadow: 4px 4px 5px #ccc;">
 
                         <script src='/mapjson/'></script>
                         <script type="text/javascript">
@@ -44,9 +40,8 @@
                             var bootcamps = new L.LayerGroup();
                             var customtraining = new L.LayerGroup();
 
-                            var map = L.map('map').setView([28.972180,-16.316170], 3);
-                            
-                            L.tileLayer('http://a.tiles.mapbox.com/v3/tonyschick.map-q6ln6vva/{z}/{x}/{y}.png', {
+                            var map = L.map('map').setView([34.972180,-66.316170], 4);
+                            L.tileLayer('http://a.tiles.mapbox.com/v3/tonyschick.map-gr9odw8f/{z}/{x}/{y}.png', {
                                 maxZoom: 18,
                                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
                             }).addTo(map);
@@ -76,6 +71,8 @@
                                         var markerLayer = L.layerGroup(markers);
                                         map.addLayer(markerLayer);
                                         activelayers.push(markerLayer);
+
+                                        L.conrol.layers(markers).addTo(map);
                                     }); 
                                 }
 
@@ -96,15 +93,17 @@
 
                                 var div = L.DomUtil.create('div', 'info legend')
                                     div.innerHTML +=
-                                        ('<h3 style="font-family: Georgia;">IRE training</h3>' + '<p style="font-family: Georgia;">One of the primary purposes of IRE is educating fellow journalists in the latest techniques of finding, understanding and reporting on stories. We are proud to say we have crisscrossed the country with our seminars and workshops and have even reached overseas.</p>' + '<h4 style="font-family: Georgia;">Latest stops</h4>'{% for t in training %} + '<p style="font-family: Georgia;">{{t.date.day}}/{{t.date.month}}/{{t.date.year}}' + '<br />' + '<a href="/training/{{t.slug}}">{{t.type}} in {{t.city}} </a></p>'{% endfor %});
+                                        ('<h3 style="font-family: Georgia;">IRE training</h3>' + '<p style="font-family: Georgia;">One of the primary purposes of IRE is educating fellow journalists in the latest techniques of finding, understanding and reporting on stories. We are proud to say we have crisscrossed the country with our seminars and workshops and have even reached overseas.</p>'/* + '<h4 style="font-family: Georgia;">Latest stops</h4>'{% for t in training %} + '<p style="font-family: Georgia;">{{t.date.month}}/{{t.date.day}}/{{t.date.year}}' + '<br />' + '<a href="/training/{{t.slug}}">{{t.type}} in {{t.city}} </a></p>'{% endfor %} */ );
                                     
                                 return div;
                             };
 
                             legend.addTo(map);
 
+
+
                         </script>
-</div>
+    </div>
 
 <script src="https://dl.dropboxusercontent.com/u/24686053/datatables.js"></script>
 <link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/24686053/DataTables-1.9.4/media/css/jquery.dataTables.css" />
@@ -124,8 +123,10 @@
             } );
 </script>
 
-<div class="span10 offset1" style="height: 90%; margin-top: 40px;">
-    <h1 id="listview" style="padding: 40px; margin-top: 40px;">Search IRE's events</h1>
+</div>
+<div class="row-fluid">
+<div class="span10 offset1">
+    <h3>Search IRE's events</h3>
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="list" width="100%">
         <thead>
             <tr>
@@ -154,6 +155,7 @@
             </tr>
         </tfoot>
     </table>
+</div>
 </div>
 	{% block storylist %}
 	{% endblock %}

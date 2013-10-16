@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="nav-collapse collapse">
+            <div class="nav-collapse collapse" id-"collapse">
                 <ul class="nav">
                     <li class="active"><a class="brand" href="/">Powering investigations</a></li>
                     <li><a href="/impacts/">What we do</a></li>
@@ -34,7 +34,7 @@
         <br />
         <h1 style="font-size: 36pt;">Powering watchdog journalism</h1>
         <br />
-        <p class="lead" style="margin-top: -20px;">IRE's training and tools contribute to investigative reporting around the world. Explore where we've held training and what stories journalists have done with IRE's help.</p>
+        <p class="lead" style="margin-top: -20px;">IRE's training and tools contribute to investigative reporting around the world. Explore a sample of where we've held training and what stories have been done with IRE's help.</p>
     </div>
 </div>
 
@@ -49,7 +49,7 @@
             </div>
             <div class="span2 offset1 btn-inverse">
                 <h1 style="text-align: center;"> {{ storytotal }} </h1>
-                <p style="text-align: center;">Stories aided</p>
+                <p style="text-align: center;">Success stories</p>
             </div>
     </div>
 
@@ -70,8 +70,8 @@
                         <script src='/mapjson/'></script>
                         <script type="text/javascript">
 
-                            var map = L.map('map').setView([38.972180,-96.316170], 3);   
-                            L.tileLayer('http://a.tiles.mapbox.com/v3/tonyschick.map-q6ln6vva/{z}/{x}/{y}.png', {
+                            var map = L.map('map').setView([38.972180,-96.316170], 4);   
+                            L.tileLayer('http://a.tiles.mapbox.com/v3/tonyschick.map-gr9odw8f/{z}/{x}/{y}.png', {
                                 maxZoom: 18,
                                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Design © <a href="http://mapbox.com">MapBox</a>'
                             }).addTo(map);
@@ -131,7 +131,7 @@
                     <div class="span12">
                         <h3>Recent events</h3>
                         {% for t in training %}
-                        {{t.date.day}}/{{t.date.month}}/{{t.date.year}}<br />
+                        {{t.date.month}}/{{t.date.day}}/{{t.date.year}}<br />
                         <p><a href="/training/{{t.slug}}">{{t.type}} in {{t.city}} </a></p>
                         
                         <hr />
@@ -151,7 +151,7 @@
                 <div class="span4">
                     <div class="page-header">
                         <h3>Latest articles</h3>
-                        <p style="margin-top: -10px;">Recent work made possible by IRE. <a href="/articles/">View all...</a></p>
+                        <p style="margin-top: -10px;">A sampling of articles journalists credited to IRE's help. <a href="/articles/">View more...</a></p>
                     </div>
                     <div id="index-storylist">
                                 {% for a in articles %}

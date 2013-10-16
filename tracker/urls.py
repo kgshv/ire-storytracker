@@ -13,7 +13,8 @@ urlpatterns = patterns('',
     url(r'^articles/(?P<slug>.*)/$', 'tracker.list.views.article_detail', name='article_detail'),
     url(r'^training/$', 'tracker.list.views.training_index', name='training_index'),
     url(r'^training/(?P<slug>.*)/$', 'tracker.list.views.training_detail', name='training_detail'),
-    url(r'^share/$', 'tracker.list.views.share', name='share'),
+    url(r'^share/$', 'tracker.list.views.contact', name='share'),
+    url(r'^thanks/$', 'tracker.list.views.thanks', name='thanks'),
 
 
 	

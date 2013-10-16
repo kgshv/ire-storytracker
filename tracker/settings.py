@@ -22,6 +22,12 @@ DATABASES = {
     }
 }
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'automated@ire.org'
+EMAIL_HOST_PASSWORD = 'ir3ROBOTs!'
+EMAIL_PORT = 587
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en//ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -115,6 +121,15 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.csrf'
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,6 +144,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'tracker.list',
 )
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -13,6 +13,7 @@
     	</style>
 		<!-- BOOSTRAP  -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		<link rel="stylesheet" type="text/css" href="http://roloyar.no-ip.biz/roloyar/tracker/style/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="http://roloyar.no-ip.biz/roloyar/tracker/style/bootstrap-responsive.css" />
 		
@@ -73,8 +74,20 @@
 	</head>
 
 	<body>
-
-		{% block title %} 
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+		<script>
+    	$('#collapse').collapse()
+		</script>
+		
+		{% block title %}
 		<div class="navbar navbar-inverse navbar-fixed-top">
 		      <div class="navbar-inner">
 		        <a href="http://ire.org"><img width="140" style="float: left; margin-top: 2px; margin-left: 3px; margin-right: 40px;" src="http://ire.org/media/images/irelogo.png" /></a>
@@ -85,19 +98,21 @@
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		            </button>
-		            <div class="nav-collapse collapse">
+		            <div class="nav-collapse collapse" id="collapse">
 		                <ul class="nav">
-		                    <li><a class="brand" href="/">Powering investigations</a></li>
-		                    <li><a href="/impacts/">What we do</a></li>
-		                    <li><a href="/training/">Where we train</a></li>
-		                    <li><a href="/articles/">Stories we aided</a></li>
-		                    <li><a href="/share/">Share with us</a></li>
-		                    <li><a href="http://ire.org/donate">Support IRE</a></li>
+		                    <li><a id="home" class="brand" href="/">Powering investigations</a></li>
+		                    <li><a id="impacts" href="/impacts/">What we do</a></li>
+		                    <li><a id="training" href="/training/">Where we train</a></li>
+		                    <li><a id="articles" href="/articles/">Success stories</a></li>
+		                    <li><a id="share" href="/share/">Share with us</a></li>
+		                    <li><a id="support" href="http://ire.org/donate">Support IRE</a></li>
 		                </ul>
 		            </div><!--/.nav-collapse -->
 		        </div>
 		      </div>
 		</div>
+
+		<!--SIDEBAR-->
 		{% endblock %}
 
 		{% block body %}
